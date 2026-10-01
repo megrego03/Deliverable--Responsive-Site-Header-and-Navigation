@@ -34,6 +34,11 @@ body {
 }
 
 .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space);
     background: var(--brand);
     color: var(--paper);
     padding: var(--space);
@@ -45,8 +50,16 @@ body {
     font-weight: 700;
 }
 
+.site-header nav {
+    width: 100%;
+}
+
 .menu-button {
     /* TODO: native button appearance, focus, and comfortable target. */
+    min-height: 2.75rem;
+    padding: .625rem 1rem;
+    font: inherit;
+    cursor: pointer;
 }
 
 .nav-list {
@@ -55,6 +68,9 @@ body {
     padding: 0;
 
     /* TODO: narrow layout. */
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
 }
 
 .nav-list a {
@@ -65,7 +81,28 @@ body {
 }
 
 /* TODO: hover, focus-visible, active, and aria-current styles. */
+.nav-list a:hover {
+    background: var(--accent);
+    color: var(--ink);
+}
 
+.nav-list a:focus-visible,
+.menu-button:focus-visible {
+    outline: .2rem solid var(--accent);
+    outline-offset: .2rem;
+}
+
+.nav-list a:active {
+    background: var(--paper);
+    color: var(--brand);
+}
+
+.nav-list a[aria-current="page"] {
+    background: var(--paper);
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: underline;
+}
 /* TODO: hide only the enhanced, collapsed narrow list. */
 
 main,

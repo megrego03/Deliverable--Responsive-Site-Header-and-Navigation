@@ -95,23 +95,27 @@
             <td>About</td>
             <td>Placed last because organization background is useful but less urgent than adoption, visiting, and support tasks.</td>
         </tr>
-        
+
     </table>
 
     <h2>2. Breakpoint evidence</h2>
+        <p>
+            <strong>Method and widths tested:</strong>
+            I first confirmed that the narrow layout worked correctly at 320 CSS pixels. To identify an appropriate content-based breakpoint, I temporarily adjusted the CSS
+            so the header and navigation used the proposed wide horizontal layout and allowed the content to extend horizontally when space became insufficient. I then gradually
+            resized the viewport and compared widths including 776, 788, 790, and 826 CSS pixels. At 776 CSS pixels, the site name and Get Support label wrapped, showing that the wide
+            layout was becoming too crowded. At 788 CSS pixels and above, the site name and all navigation labels fit on one line without clipping or overlap.
+        </p>
 
-    <p>
-        <strong>Method and widths tested:</strong> [Response]
-    </p>
+        <p>
+            <strong>First content failure:</strong>
+            At 776 CSS pixels, the wide horizontal layout became crowded. The Desert Paws Animal Shelter site name wrapped onto two lines, and the Get Support navigation label also wrapped onto two lines.
+        </p>
 
-    <p>
-        <strong>First content failure:</strong>
-        [What happened and at what width?]
-    </p>
-
-    <p>
-        <strong>Chosen breakpoint in relative units:</strong> [Response]
-    </p>
+        <p>
+            <strong>Chosen breakpoint in relative units:</strong>
+            I chose 49.25em, which is approximately 788 CSS pixels at the browser's default 16-pixel font size. At 788 CSS pixels, the site name and all six navigation destinations fit on one line without clipping or unwanted wrapping.
+        </p>
 
     <p>
         <strong>Long-label and zoom retest:</strong>
