@@ -60,7 +60,6 @@ body {
     font: inherit;
     cursor: pointer;
 }
- /* TODO: native button appearance, focus, and comfortable target. */
 .nav-list {
     display: flex;
     flex-direction: column;
@@ -76,7 +75,7 @@ body {
     padding: .75rem;
     text-decoration: none;
 }
-/* TODO: hover, focus-visible, active, and aria-current styles. */
+
 .nav-list a:hover {
     background: var(--accent);
     color: var(--ink);
@@ -99,7 +98,7 @@ body {
     font-weight: 700;
     text-decoration: underline;
 }
-/* TODO: hide only the enhanced, collapsed narrow list. */
+
 .js .nav-list[data-open="false"] {
     display: none;
 }
@@ -118,7 +117,7 @@ main {
     min-height: 55vh;
     padding-block: 2rem;
 }
-/* TODO: add the relative-unit breakpoint justified in navigation-plan.html. */
+
 @media (min-width: 49.25em) {
     .site-header {
         flex-wrap: nowrap;
