@@ -55,22 +55,19 @@ body {
 }
 
 .menu-button {
-    /* TODO: native button appearance, focus, and comfortable target. */
     min-height: 2.75rem;
     padding: .625rem 1rem;
     font: inherit;
     cursor: pointer;
 }
-
+ /* TODO: native button appearance, focus, and comfortable target. */
 .nav-list {
-    list-style: none;
-    margin: .75rem 0 0;
-    padding: 0;
-
-    /* TODO: narrow layout. */
     display: flex;
     flex-direction: column;
     gap: .25rem;
+    list-style: none;
+    margin: .75rem 0 0;
+    padding: 0;
 }
 
 .nav-list a {
@@ -79,7 +76,6 @@ body {
     padding: .75rem;
     text-decoration: none;
 }
-
 /* TODO: hover, focus-visible, active, and aria-current styles. */
 .nav-list a:hover {
     background: var(--accent);
@@ -104,6 +100,13 @@ body {
     text-decoration: underline;
 }
 /* TODO: hide only the enhanced, collapsed narrow list. */
+.js .nav-list[data-open="false"] {
+    display: none;
+}
+
+.js .nav-list[data-open="true"] {
+    display: flex;
+}
 
 main,
 footer {
@@ -115,9 +118,7 @@ main {
     min-height: 55vh;
     padding-block: 2rem;
 }
-
 /* TODO: add the relative-unit breakpoint justified in navigation-plan.html. */
-
 @media (min-width: 49.25em) {
     .site-header {
         flex-wrap: nowrap;
