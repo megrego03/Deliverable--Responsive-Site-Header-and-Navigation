@@ -136,97 +136,163 @@
 
         <tr>
             <td>Keyboard: button, Tab, Escape, focus</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                Tab should reach the skip link, menu button, and all visible navigation links. Enter and Space should operate the native menu button. Escape should close an
+                open menu and return focus to the menu button. Hidden navigation links should not receive focus.
+            </td>
+            <td>
+                The skip link became visible when focused, the menu button was reachable by keyboard, and Enter and Space both opened and closed the menu. Tab moved through
+                the visible navigation links with visible focus. Escape closed the open menu and <img src="" alt="" sizes="" srcset="">eturned focus to the menu button. Hidden links were not reachable while the menu
+                was closed.
+            </td>
+            <td>
+                Pass. All required keyboard and focus behaviors worked as expected. No repair was needed.
+            </td>
         </tr>
 
         <tr>
             <td>Pointer/touch targets</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                The menu button and navigation links should provide comfortable targets and be selectable without clipping, overlap, or accidental activation.
+            </td>
+
+            <td>
+                The menu button and navigation links were clearly visible and easy to select. The controls did not overlap, and spacing remained comfortable between navigation items.
+            </td>
+
+            <td>
+                Pass. Pointer targets and spacing worked as expected. No repair was needed.
+            </td>
         </tr>
 
         <tr>
             <td>320px and breakpoint region</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                At 320 CSS pixels, the layout should remain usable without clipped text, horizontal scrolling, overlapping elements, missing links, or cut-off focus
+                outlines. Around the breakpoint, the layout should transition without becoming broken or crowded.
+            </td>
+            <td>
+                At 320 CSS pixels, the narrow layout remained readable and usable without clipping, overlap, missing links, or horizontal scrolling. Around the 49.25em
+                breakpoint, the stacked navigation remained in place below the breakpoint and changed to the horizontal wide layout at approximately 788 CSS pixels without clipping or overlap.
+            </td>
+            <td>
+                Pass. The narrow layout and breakpoint transition worked as intended. No repair was needed after the final breakpoint was selected.
+            </td>
         </tr>
 
         <tr>
             <td>200% zoom</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                At 200% browser zoom, every navigation link should remain available, text should remain readable, the header should reflow when needed, important content should
+                not overlap, and keyboard focus should remain visible.
+            </td>
+            <td>
+                At 200% zoom, all navigation links remained available and readable. The header reflowed without clipping or overlap, and keyboard focus remained visible.
+            </td>
+            <td>
+                Pass. The layout remained usable at 200% zoom. No repair was needed.
+            </td>
         </tr>
 
         <tr>
             <td>JavaScript unavailable</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                With JavaScript unavailable, the menu button should remain hidden and all navigation links should remain visible and usable.
+            </td>
+            <td>
+                With JavaScript disabled, the menu button was not displayed and all primary navigation links remained visible and usable.
+            </td>
+            <td>
+                Pass. The no-JavaScript baseline worked as required. No repair was needed.
+            </td>
         </tr>
 
         <tr>
             <td>CSS unavailable / wide recovery</td>
-            <td>[Expected]</td>
-            <td>[Observed]</td>
-            <td>[Pass/fail and repair]</td>
+            <td>
+                Without CSS, the HTML should remain understandable, the navigation links should remain usable, and the content order should remain logical. After closing the
+                narrow menu and widening the viewport, the wide navigation should become visible regardless of the previous narrow-menu state.
+            </td>
+            <td>
+                With CSS disabled, the page remained understandable and the navigation links remained usable in a logical document order. After closing the narrow menu and
+                widening the viewport beyond the breakpoint, the complete horizontal navigation became visible again.
+            </td>
+            <td>
+                Pass. Both the CSS-failure test and wide-layout recovery behaved as expected. No repair was needed.
+            </td>
         </tr>
     </table>
 
-    <p>
+     <p>
         <strong>Screenshot filenames and what each proves:</strong>
-        [Response]
+     </p>
+
+     <p>
+        <strong>Narrow (320px) Viewport Menu Navigation</strong><br>
+        <img src="narrow-width-navigation.jpg" width="600"><br>
+        <code>narrow-width-navigation.jpg</code> shows the expanded navigation at 320 CSS pixels with all navigation links visible and usable without clipping or overlap.
+     </p>
+
+     <p>
+        <strong>Wide (788px) Viewport Menu Navigation</strong><br>
+        <img src="wide-navigation.jpg" width="600"><br>
+        <code>wide-navigation.jng</code> shows the horizontal navigation at the wide-layout breakpoint with all navigation destinations visible on one line.
     </p>
 
     <h2>4. Peer task test</h2>
 
     <p>
-        <strong>Tester relationship (no name needed):</strong> [Response]
+        <strong>Tester relationship (no name needed):</strong>
+        Family members (mother and brother)
     </p>
 
     <p>
-        <strong>Two tasks attempted:</strong> [Response]
+        <strong>Two tasks attempted:</strong>
+        Find the shelter's visiting information and find where to get support from the shelter.
     </p>
 
     <p>
         <strong>What the tester did or said:</strong>
-        [Direct observation]
+        Both testers were able to locate the correct navigation destinations without assistance. They found the site easy to navigate and did not show any confusion while completing
+        either task.
     </p>
 
     <p>
-        <strong>Change made or justified:</strong> [Response]
+        <strong>Change made or justified:</strong>
+        No change was necessary because both testers completed the tasks successfully and found the navigation clear and easy to use.
     </p>
 
     <h2>5. JavaScript code defense</h2>
 
     <p>
-        Explain initialization, state synchronization, activation, and
-        Escape/focus behavior in your own words. Refer to the exact variable,
-        attribute, dataset value, function, and event used.
+    The script selects the menu button and navigation list, then adds a <code>js</code> class so the page knows JavaScript is available. It also reveals the Menu button, which stays hidden when JavaScript is unavailable.
     </p>
 
-    <p>[Response]</p>
+    <p>
+        The <code>setMenuState()</code> function keeps the menu's open or closed state consistent by updating both <code>aria-expanded</code> and the navigation list's <code>data-open</code> value.
+    </p>
+
+    <p>
+        Clicking the Menu button toggles the navigation open and closed. Because it is a native button, Enter and Space already work automatically. Pressing Escape closes the menu and moves focus back to the Menu button.
+    </p>
 
     <h2>6. AI disclosure</h2>
 
     <p>
-        <strong>Tool and purpose, or none:</strong> [Response]
+        <strong>Tool and purpose, or none:</strong>  I used ChatGPT for assistance in developing the minimal JavaScript required for the responsive navigation. AI was also used to reformat the provided code into a more legible structure before
+    code execution began. This formatting did not change or edit the code itself.
     </p>
 
     <p>
-        <strong>Prompt/task:</strong> [Response]
+        <strong>Prompt/task:</strong> I asked ChatGPT to suggest minimal JavaScript that would support the required menu behavior, including state synchronization, menu toggling, Escape-key behavior, and focus return.
     </p>
 
     <p>
-        <strong>Accepted, changed, or rejected output:</strong> [Response]
+        <strong>Accepted, changed, or rejected output:</strong> I reviewed the suggested JavaScript and used the portions that matched the assignment requirements. I remained responsible for understanding and explaining each accepted line of JavaScript.
     </p>
 
     <p>
-        <strong>How I verified it:</strong> [Tests and sources]
+        <strong>How I verified it:</strong> I personally tested the accepted JavaScript by confirming the menu opened and closed correctly, Enter and Space worked through the native button, Escape closed the menu and returned focus, and the wide navigation remained visible after resizing.
     </p>
 </body>
 
