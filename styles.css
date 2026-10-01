@@ -117,3 +117,27 @@ main {
 }
 
 /* TODO: add the relative-unit breakpoint justified in navigation-plan.html. */
+
+@media (min-width: 49.25em) {
+    .site-header {
+        flex-wrap: nowrap;
+    }
+
+    .site-header nav {
+        width: auto;
+        margin-left: auto;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .nav-list,
+    .js .nav-list[data-open="false"],
+    .js .nav-list[data-open="true"] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+    }
+}
